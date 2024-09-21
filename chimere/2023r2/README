@@ -16,4 +16,4 @@
 - submit the build.slurm as a job to compile the code:
 
 
-``sbatch build.slurm`` 
+```sbatch build.slurm``` 
