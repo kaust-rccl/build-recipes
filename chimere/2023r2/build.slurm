@@ -26,7 +26,7 @@ export JASPERINC=${CONDA_PREFIX}/include
 
 
 ./build-xios.sh --arch shaheen.gnu 
-./build-chimere.sh --arch shaheen.gnu --oasis
+#./build-chimere.sh --arch shaheen.gnu --oasis
 ./build-chimere.sh --arch shaheen.gnu
 ./build-wrf.sh --arch shaheen.gnu
 
