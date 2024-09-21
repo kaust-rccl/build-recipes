@@ -1,0 +1,7 @@
+name: chimere-env
+channels:
+  - conda-forge
+dependencies:
+  - python=3.10
+  - wgrib2
+  - jasper
