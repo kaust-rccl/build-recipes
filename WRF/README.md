@@ -3,6 +3,16 @@ WRF
 
 Quick Start
 ===========
+
+PrgEnv-gnu is currently recommended so you can download source code of WRF and compile it as follows:
+
+```
+./get_src.sh 4.6.0
+./compile_src.sh wrf gnu dmpar &> wrf-gnu-compile-log.txt
+```
+
+The following command compiles WRF for three PrgEnv's:
+
 ```
 ./get_src.sh 4.6.0
 for e in cray intel gnu; do
