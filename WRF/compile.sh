@@ -53,7 +53,6 @@ if [[ $compiler = gnu || $compiler = intel ]]; then
 fi
 if [ $software = wrfchem ]; then
    module load flex/2.6.4
-   export FLEX_LIB_DIR=/sw/ex109genoa/flex/2.6.4/lib
    export FLEX=/usr/bin/flex
    export YACC="/usr/bin/yacc -d"
    export JASPERLIB=/usr/lib64
