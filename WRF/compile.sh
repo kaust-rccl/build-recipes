@@ -80,8 +80,9 @@ fi
 
 sed -i 's;/lib/cpp -P -nostdinc;/lib/cpp -P ;g' ./configure.wrf
 sed -i 's/# -DRSL0_ONLY/-DRSL0_ONLY/g' ./configure.wrf
-sed -i 's/nproc_x .LT. 10/nproc_x .LT. 1/' share/module_check_a_mundo.F
-sed -i 's/nproc_y .LT. 10/nproc_y .LT. 1/' share/module_check_a_mundo.F
+## These following two lines are for only experimental purposes. These lines should be left commented for production.
+#sed -i 's/nproc_x .LT. 10/nproc_x .LT. 1/' share/module_check_a_mundo.F
+#sed -i 's/nproc_y .LT. 10/nproc_y .LT. 1/' share/module_check_a_mundo.F
 
 if [ $software = wrfchem ]; then
    sed -i -e 's/="-O"/="-O0"/' chem/KPP/configure_kpp
