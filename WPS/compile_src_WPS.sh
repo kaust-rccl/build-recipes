@@ -3,7 +3,7 @@ function usage() {
    echo "Usage: $0 compiler wrfpath"  
    echo "	compiler: gnu cray or intel"  
    echo "	wrfpath : absolute path to the installed wrf"  
-   echo "	        : contains the main directory wich"  
+   echo "	        : contains the main directory which"  
    echo "	        : contains the wrf.exe binary"  
    exit 0
 }
@@ -30,7 +30,7 @@ if [ $compiler = gnu ]; then
 elif [ $compiler = intel ]; then
    module sw PrgEnv-cray PrgEnv-intel
 fi
-module load cray-hdf5 cray-netcdf cray-parallel-netcdf
+module load cray-hdf5 cray-netcdf cray-parallel-netcdf flex
 export CC=cc
 export CXX=CC
 export FC=ftn
@@ -40,7 +40,6 @@ export PHDF5=$HDF5_DIR
 export NETCDF=$NETCDF_DIR
 export PNETCDF=$PNETCDF_DIR
 module load flex/2.6.4
-export FLEX_LIB_DIR=/sw/ex109genoa/flex/2.6.4/lib
 export FLEX=/usr/bin/flex
 export YACC="/usr/bin/yacc -d"
 export JASPERLIB=/usr/lib64
