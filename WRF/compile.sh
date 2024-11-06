@@ -36,6 +36,7 @@ if [ $compiler = gnu ]; then
    module sw PrgEnv-cray PrgEnv-gnu
 elif [ $compiler = intel ]; then
    module sw PrgEnv-cray PrgEnv-intel
+   module sw intel/2023.1.0 intel/2024.2.1
 fi
 module load cray-hdf5 cray-netcdf cray-parallel-netcdf
 export CC=cc
@@ -63,6 +64,7 @@ if [ $software = wrfchem ]; then
    export WRF_CHEM=1
    export WRF_KPP=1
 fi
+module list -t
 SRC_DIR=WRF_install/$software/$compiler/$install
 rm -rf $SRC_DIR
 mkdir -p $SRC_DIR
@@ -72,6 +74,8 @@ cd $SRC_DIR/WRF
 
 if [ $compiler = intel ]; then
    sed -i '/FCOPTIM/s/-O3/-O3 -fp-model precise/' ./configure.wrf
+   sed -i '/SCC/s/icc/icx/' ./configure.wrf
+   sed -i '/CCOMP/s/icc/icx/' ./configure.wrf
 elif [ $compiler = cray ]; then
    sed -i 's/-hnoomp//g' configure.wrf
    sed -i '/OMPCC/s/-homp/-fopenmp/' configure.wrf

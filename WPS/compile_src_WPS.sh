@@ -29,6 +29,7 @@ if [ $compiler = gnu ]; then
    module sw PrgEnv-cray PrgEnv-gnu
 elif [ $compiler = intel ]; then
    module sw PrgEnv-cray PrgEnv-intel
+   module sw intel/2023.1.0 intel/2024.2.1
 fi
 module load cray-hdf5 cray-netcdf cray-parallel-netcdf flex
 export CC=cc
