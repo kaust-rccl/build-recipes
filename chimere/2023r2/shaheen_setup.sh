@@ -21,6 +21,5 @@ cp mychimere-shaheen.gnu $MYCHIMERE/
 cp make_CHIMERE $OASIS_DIR/util/make_dir/
 cp make.inc $OASIS_DIR/util/make_dir/ 
 cp TopMakefileOasis3 $OASIS_DIR/util/make_dir/
-
-cp chimere.sh ${CHIMERE_ROOT}/
-cp statcodes_paths.sh ${$MYCHIMERE}/
+cp ../chimere.sh ${CHIMERE_ROOT}/
+cp ../statcodes_paths.sh ${MYCHIMERE}/
