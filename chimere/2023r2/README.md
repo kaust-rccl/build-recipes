@@ -15,6 +15,8 @@ https://docs.hpc.kaust.edu.sa/soft_env/prog_env/python_package_management/conda/
 
 - Run ./shaheen_setup.sh . Please make sure your PWD is where the directory "modifications" is present.
 
+- Run ./grib_api_install.sh script to install the grib_api from source.
+
 
 - submit the build.slurm as a job to compile the code:
 
