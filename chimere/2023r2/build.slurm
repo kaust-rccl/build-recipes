@@ -12,7 +12,6 @@ cd $CHIMERE_ROOT
 #source $MY_SW/miniconda3-amd64/bin/activate $CHIMERE_BASE/../install
 source $MY_SW/miniconda3-amd64/bin/activate /scratch/project/k01/exclude/shaima0d/tickets/57408/install
 module swap PrgEnv-cray PrgEnv-gnu
-module swap craype-x86-genoa craype-x86-milan
 module load cray-netcdf-hdf5parallel
 module load cray-hdf5-parallel
 module load blitz

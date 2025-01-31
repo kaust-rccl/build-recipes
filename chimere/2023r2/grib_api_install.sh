@@ -12,7 +12,7 @@ mkdir build && cd build
 CC=cc CFLAGS=-fPIC cmake -DCMAKE_INSTALL_PREFIX=$CONDA_PREFIX -DINCLUDE_INSTALL_DIR=$CONDA_PREFIX/include ..
 make -j 1 VERBOSE=1
 make install
-cd ../../
+cd ../
 
 echo "modifying a header file in Jasper so grip_api can compile"
 sed -i 's;//bool inmem_;bool inmem_;g' $CONDA_PREFIX/include/jasper/jas_image.h
