@@ -1,0 +1,11 @@
+82,83c82,84
+<  */      
+<     image=jpc_decode(jpcstream,opts);
+---
+>  */ 
+>     int fmt;    
+>     image=jas_image_decode(jpcstream,fmt,opts);
+85c86
+<        printf(" jpc_decode return = %d \n",ier);
+---
+>        printf(" jas_image_decode return = %d \n",ier);
