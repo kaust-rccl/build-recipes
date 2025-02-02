@@ -6,7 +6,7 @@
 %FCOMPILER      ${my_mpif90}
 %LINKER         ${my_mpif90}  
 
-%BASE_CFLAGS    -w -std=c++11 -D__XIOS_EXCEPTION -include 'limits' -include 'numeric' -include 'array'
+%BASE_CFLAGS    -w -std=c++11 -D__XIOS_EXCEPTION -include 'limits' -include 'numeric' -include 'array' -include 'cstdint'
 %PROD_CFLAGS    -O3 -DBOOST_DISABLE_ASSERTS
 %DEV_CFLAGS     -g -O2 
 %DEBUG_CFLAGS   -g 
