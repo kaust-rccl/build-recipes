@@ -52,6 +52,19 @@ mkdir -p $SRC_DIR
 cp -r WPS $SRC_DIR
 cd $SRC_DIR/WPS
 ./configure <<< $(get_code_install $compiler)
+
+## CPE WRAPPERS
+CONFIGURE_FILE=configure.wps
+sed -i 's/\bgcc\b/cc/' $CONFIGURE_FILE
+sed -i 's/\bmpicc\b/cc/' $CONFIGURE_FILE
+sed -i 's/\bgfortran\b/ftn/' $CONFIGURE_FILE
+sed -i 's/\bmpif90\b/ftn/' $CONFIGURE_FILE
+
+if [ $1 = gnu ]; then
+    sed -i '/^FFLAGS/s/=\( *\)/=\1-fallow-argument-mismatch /' $CONFIGURE_FILE
+    sed -i '/^F77FLAGS/s/=\( *\)/=\1-fallow-argument-mismatch /' $CONFIGURE_FILE
+fi
+
 sed -i 's/int2nc.exe:/int2nc.exe: met_data_module.o/g' util/src/Makefile
 sed -i 's/$(WRF_INCLUDE) int2nc.o/$(WRF_INCLUDE) met_data_module.o int2nc.o/g' util/src/Makefile
 time ./compile 2>&1 | tee compile_wps.log
