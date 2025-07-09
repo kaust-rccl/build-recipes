@@ -1,6 +1,6 @@
 #!/bin/sh
 
-module swap PrgEnv-cray PrgEnv-gnu/8.5.0
+module swap PrgEnv-cray PrgEnv-gnu
 module load cray-hdf5
 module load cray-netcdf
 module load cray-parallel-netcdf
@@ -66,6 +66,7 @@ sed -i 's/mpif90/ftn/' configure.wrf
 ## MANUAL MODIFICATIONS : works for gcc 12 (and 13)
 CONFIGURE_FILE=./configure.wrf
 sed -i 's/^DM_CC.*/DM_CC           =       cc/' $CONFIGURE_FILE                                         # Update DM_CC to use "cc" compiler and remove "-cc=$(SCC)" from the configuration
+sed -i '/^CFLAGS_LOCAL/s/=\( *\)/=\1-fpermissive /' $CONFIGURE_FILE                                     # Add "-fpermissive to CFLAGS_LOCAL to allow incompatible pointer types
 sed -i '/^FCOPTIM/s/=\( *\)/=\1-fallow-argument-mismatch /' $CONFIGURE_FILE                             # Add "-fallow-argument-mismatch" to FCOPTIM to allow argument mismatches
 sed -i '/^FCNOOPT/s/=\( *\)/=\1-fallow-argument-mismatch -fallow-invalid-boz  /' $CONFIGURE_FILE        # Add flags to FCNOOPT to allow argument mismatches and invalid boz constants
 sed -i '/^FCBASEOPTS_NO_G/s/=\( *\)/=\1-fallow-argument-mismatch -fallow-invalid-boz /' $CONFIGURE_FILE # Add flags to FCBASEOPTS_NO_G to allow argument mismatches and invalid boz constants
