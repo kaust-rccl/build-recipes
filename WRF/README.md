@@ -16,6 +16,7 @@ source compile_wrf_gnu.sh &> wrfchem-gnu-compile-log.txt
 
 History
 =======
+2025-07-09 Updated `compile_wrf_gnu.sh` to compile WRF-Chem and ran the reframe test successfully with cpe/25.03 and PrgEnv-gnu/8.6.0.
 
 2024-09-26 `compile_wrf_gnu.sh` to compile WRF-Chem with quilting in PrgEnv-gnu.
 
