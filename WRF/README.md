@@ -37,19 +37,10 @@ cd build-recipes/WRF
 ./compile.sh wrf gnu dmpar &> wrf-gnu-compile-log.txt
 ```
 
-The following command compiles WRF for three PrgEnv's:
-
-```
-git clone https://github.com/kaust-rccl/build-recipes.git
-cd build-recipes/WRF
-./get_src.sh 4.6.0
-for e in cray intel gnu; do
-    nohup ./compile.sh wrf ${e} dmpar &> wrf-${e}-compile-log.txt &
-done
-```
-
 History
 =======
+2025-07-10 Updated `compile.sh` to compile WRF and ran the reframe test successfully with cpe/25.03 and PrgEnv-gnu/8.6.0.
+
 2024-08-20 WRF is built for the three environments successfully.
 
 

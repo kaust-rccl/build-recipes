@@ -80,6 +80,8 @@ elif [ $compiler = cray ]; then
    sed -i 's/-hnoomp//g' configure.wrf
    sed -i '/OMPCC/s/-homp/-fopenmp/' configure.wrf
    sed -i '/CFLAGS_LOCAL/s/-O3/-O0 -Wno-implicit-function-declaration -Wno-implicit-int/' configure.wrf
+elif [ $compiler = gnu ]; then
+   sed -i '/^CFLAGS_LOCAL/s/=\( *\)/=\1-fpermissive /' configure.wrf
 fi
 
 sed -i 's;/lib/cpp -P -nostdinc;/lib/cpp -P ;g' ./configure.wrf
