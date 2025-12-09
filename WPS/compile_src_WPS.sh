@@ -9,7 +9,7 @@ function usage() {
 }
 function get_code_install(){
 if [ $1 = gnu ]; then
-   echo "3"
+   echo "2"
 elif [ $1 = intel ]; then
    echo "43"
 elif [ $1 = cray ]; then
@@ -27,6 +27,7 @@ else
 fi
 if [ $compiler = gnu ]; then
    module sw PrgEnv-cray PrgEnv-gnu
+   config_parameters="--build-grib2-libs"
 elif [ $compiler = intel ]; then
    module sw PrgEnv-cray PrgEnv-intel
    module sw intel/2023.1.0 intel/2024.2.1
@@ -51,7 +52,7 @@ rm -rf $SRC_DIR
 mkdir -p $SRC_DIR
 cp -r WPS $SRC_DIR
 cd $SRC_DIR/WPS
-./configure <<< $(get_code_install $compiler)
+./configure ${config_parameters} <<< $(get_code_install $compiler)
 
 ## CPE WRAPPERS
 CONFIGURE_FILE=configure.wps
